@@ -13,10 +13,17 @@ function PlantPage() {
     .then(response => response.json())
     .then(setPlants) 
   }, [])
+
+
+  function handleAddPlant(newPlant) {
+    console.log(newPlant)
+    setPlants([...plants, newPlant])
+    // Uses spread operator to create a shallow copy of the array of plant objects. Appends newPlant state object to the new plants array. 
+  }
   // useEffect always takes two arguments: an anonymous callback function, and an empty dependency array.
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onAddPlant ={handleAddPlant}/>
       <Search />
       <PlantList plants={plants}/>
     </main>
