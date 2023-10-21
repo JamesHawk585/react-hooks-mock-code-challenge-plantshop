@@ -14,11 +14,11 @@ function NewPlantForm({ onAddPlant }) {
 
   function handleChange(e) {
     if (e.target.name === "price") {
+      // checks if the new value of "name" in the state object is === to "price".
       const amt = e.target.value
       if (amt === "" || amt === null ) {
         setFromData({...formData, [e.target.name]: ""})
       }
-      // chacks if the new value of "name" in the state object is === to "price". 
       setFromData({
         ...formData, 
         [e.target.name]: parseFloat(e.target.value),

@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Other Fancy Plant ",
+      "price": 1,
+      "image": "https://www.elephantstock.com/cdn/shop/collections/marijuana-plants-wall-art.jpg?crop=center&height=1024&v=1649152895&width=1024",
+      "id": 8
     }
   ]
 }

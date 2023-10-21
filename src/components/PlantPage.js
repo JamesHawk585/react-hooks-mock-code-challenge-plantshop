@@ -5,8 +5,7 @@ import Search from "./Search";
 
 function PlantPage() {
   const [plants, setPlants] = useState([])
-  // Always use a default value of an empty array
-
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     fetch("http://localhost:6001/plants")
@@ -16,16 +15,20 @@ function PlantPage() {
 
 
   function handleAddPlant(newPlant) {
-    console.log(newPlant)
     setPlants([...plants, newPlant])
     // Uses spread operator to create a shallow copy of the array of plant objects. Appends newPlant state object to the new plants array. 
   }
+
+  const filteredPlants = plants.filter(plant => plant.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  console.log(filteredPlants)
+
+
   // useEffect always takes two arguments: an anonymous callback function, and an empty dependency array.
   return (
     <main>
       <NewPlantForm onAddPlant ={handleAddPlant}/>
-      <Search />
-      <PlantList plants={plants}/>
+      <Search  searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <PlantList plants={filteredPlants}/>
     </main>
   );
 }
